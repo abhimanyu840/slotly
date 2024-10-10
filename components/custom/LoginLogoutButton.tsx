@@ -1,20 +1,23 @@
 "use client";
 import React from 'react'
 import { Button } from '../ui/button'
-import { SignedIn, SignedOut, SignInButton } from '@clerk/nextjs'
+import { SignedIn, SignedOut, SignInButton, useUser } from '@clerk/nextjs'
 import { UserMenu } from './UserMenu'
 
 const LoginLogoutButton = () => {
+
+    const { user } = useUser();
+
     return (
         <div>
-            <SignedOut>
+            {!user && <SignedOut>
                 <SignInButton forceRedirectUrl={'/dashboard'}>
                     <Button variant={'outline'}>Login</Button>
                 </SignInButton>
-            </SignedOut>
-            <SignedIn>
+            </SignedOut>}
+            {user && <SignedIn>
                 <UserMenu />
-            </SignedIn>
+            </SignedIn>}
         </div>
     )
 }
