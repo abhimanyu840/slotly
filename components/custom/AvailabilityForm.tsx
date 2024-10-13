@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -46,8 +46,8 @@ const AvailabilityForm = ({ initialData }: AvailabilityFormProps) => {
         });
     };
 
-    const [hydrated, setHydrated] = React.useState(false);
-    React.useEffect(() => {
+    const [hydrated, setHydrated] = useState(false);
+    useEffect(() => {
         setHydrated(true);
     }, []);
 
