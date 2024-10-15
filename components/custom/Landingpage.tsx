@@ -32,23 +32,9 @@ const people = [
         designation: "Founder & CEO",
         image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
     },
-    //TODO: change image with mine
-    // {
-    //     id: 2,
-    //     name: "Jane Smith",
-    //     designation: "CTO",
-    //     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
-    // },
-    // {
-    //     id: 3,
-    //     name: "Robert Johnson",
-    //     designation: "Head of Design",
-    //     image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
-    // },
 ];
 
 function LandingPage() {
-
     const [hydrated, setHydrated] = useState(false);
 
     useEffect(() => {
@@ -56,9 +42,9 @@ function LandingPage() {
     }, []);
 
     return (
-        hydrated && <div className="flex flex-col min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+        hydrated && <div className="flex flex-col min-h-screen bg-gradient-to-b from-purple-50 to-pink-100 dark:from-gray-900 dark:to-purple-900 text-neutral-900 dark:text-neutral-100">
             <main className="flex-1">
-                <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-primary dark:bg-primary-dark relative">
+                <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 relative">
                     <BackgroundBeams />
                     <div className="container px-4 md:px-6 relative z-10">
                         <div className="flex flex-col items-center space-y-4 text-center">
@@ -72,52 +58,52 @@ function LandingPage() {
                             </div>
                             <div className="space-x-4">
                                 <Link href={'/dashboard'}>
-                                    <Button variant="secondary" size="lg">
+                                    <Button variant="secondary" size="lg" className="bg-white text-purple-600 hover:bg-purple-100">
                                         Get Started for Free
                                     </Button>
                                 </Link>
-                                <Button variant="outline" size="lg" className="text-black dark:text-white border-white  hover:bg-white/20">
+                                <Button variant="outline" size="lg" className="text-black dark:text-white border-white hover:bg-white/20">
                                     Learn More
                                 </Button>
                             </div>
                         </div>
                     </div>
                 </section>
-                <WavyBackground className="max-w-4xl mx-auto pb-40">
-                    <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-neutral-100 dark:bg-neutral-800">
+                <WavyBackground className="max-w-4xl mx-auto pb-40" colors={['#3b82f6', '#8b5cf6', '#d946ef']}>
+                    <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-lg rounded-lg shadow-xl">
                         <div className="container px-4 md:px-6">
-                            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Key Features</h2>
+                            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-purple-600 dark:text-purple-400">Key Features</h2>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                    <Card className="bg-white dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700">
+                                    <Card className="bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 border-blue-200 dark:border-blue-700">
                                         <CardHeader>
-                                            <Clock className="w-12 h-12 text-primary dark:text-primary-dark mb-4" />
-                                            <CardTitle>Easy Scheduling</CardTitle>
+                                            <Clock className="w-12 h-12 text-blue-500 dark:text-blue-400 mb-4" />
+                                            <CardTitle className="text-blue-700 dark:text-blue-300">Easy Scheduling</CardTitle>
                                         </CardHeader>
                                         <CardContent>
-                                            <p>Share your Slotly link and let others book time slots that work for both of you.</p>
+                                            <p className="text-blue-600 dark:text-blue-200">Share your Slotly link and let others book time slots that work for both of you.</p>
                                         </CardContent>
                                     </Card>
                                 </motion.div>
                                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                    <Card className="bg-white dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700">
+                                    <Card className="bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 border-purple-200 dark:border-purple-700">
                                         <CardHeader>
-                                            <Globe className="w-12 h-12 text-primary dark:text-primary-dark mb-4" />
-                                            <CardTitle>Time Zone Intelligence</CardTitle>
+                                            <Globe className="w-12 h-12 text-purple-500 dark:text-purple-400 mb-4" />
+                                            <CardTitle className="text-purple-700 dark:text-purple-300">Time Zone Intelligence</CardTitle>
                                         </CardHeader>
                                         <CardContent>
-                                            <p>Automatically detects and adjusts for time zones, eliminating confusion.</p>
+                                            <p className="text-purple-600 dark:text-purple-200">Automatically detects and adjusts for time zones, eliminating confusion.</p>
                                         </CardContent>
                                     </Card>
                                 </motion.div>
                                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                    <Card className="bg-white dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700">
+                                    <Card className="bg-gradient-to-br from-pink-100 to-red-100 dark:from-pink-900 dark:to-red-900 border-pink-200 dark:border-pink-700">
                                         <CardHeader>
-                                            <Users className="w-12 h-12 text-primary dark:text-primary-dark mb-4" />
-                                            <CardTitle>Team Scheduling</CardTitle>
+                                            <Users className="w-12 h-12 text-pink-500 dark:text-pink-400 mb-4" />
+                                            <CardTitle className="text-pink-700 dark:text-pink-300">Team Scheduling</CardTitle>
                                         </CardHeader>
                                         <CardContent>
-                                            <p>Coordinate with your team members and manage group availability effortlessly.</p>
+                                            <p className="text-pink-600 dark:text-pink-200">Coordinate with your team members and manage group availability effortlessly.</p>
                                         </CardContent>
                                     </Card>
                                 </motion.div>
@@ -125,9 +111,9 @@ function LandingPage() {
                         </div>
                     </section>
                 </WavyBackground>
-                <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-neutral-900">
+                <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-green-400 to-blue-500 dark:from-green-800 dark:to-blue-900">
                     <div className="container px-4 md:px-6">
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">How It Works</h2>
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-white">How It Works</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <motion.div
                                 initial={{ opacity: 0, y: 50 }}
@@ -135,9 +121,9 @@ function LandingPage() {
                                 transition={{ duration: 0.5, delay: 0.1 }}
                                 className="flex flex-col items-center text-center"
                             >
-                                <div className="w-12 h-12 rounded-full bg-primary dark:bg-primary-dark text-white dark:text-black flex items-center justify-center text-2xl font-bold mb-4">1</div>
-                                <h3 className="text-xl font-bold mb-2">Set Your Availability</h3>
-                                <p>Define your working hours and break times in Slotly.</p>
+                                <div className="w-16 h-16 rounded-full bg-white text-green-500 flex items-center justify-center text-2xl font-bold mb-4">1</div>
+                                <h3 className="text-xl font-bold mb-2 text-white">Set Your Availability</h3>
+                                <p className="text-green-100">Define your working hours and break times in Slotly.</p>
                             </motion.div>
                             <motion.div
                                 initial={{ opacity: 0, y: 50 }}
@@ -145,9 +131,9 @@ function LandingPage() {
                                 transition={{ duration: 0.5, delay: 0.2 }}
                                 className="flex flex-col items-center text-center"
                             >
-                                <div className="w-12 h-12 rounded-full bg-primary dark:bg-primary-dark text-white dark:text-black flex items-center justify-center text-2xl font-bold mb-4">2</div>
-                                <h3 className="text-xl font-bold mb-2">Share Your Link</h3>
-                                <p>Send your unique Slotly link to clients or colleagues.</p>
+                                <div className="w-16 h-16 rounded-full bg-white text-blue-500 flex items-center justify-center text-2xl font-bold mb-4">2</div>
+                                <h3 className="text-xl font-bold mb-2 text-white">Share Your Link</h3>
+                                <p className="text-blue-100">Send your unique Slotly link to clients or colleagues.</p>
                             </motion.div>
                             <motion.div
                                 initial={{ opacity: 0, y: 50 }}
@@ -155,13 +141,15 @@ function LandingPage() {
                                 transition={{ duration: 0.5, delay: 0.3 }}
                                 className="flex flex-col items-center text-center"
                             >
-                                <div className="w-12 h-12 rounded-full bg-primary dark:bg-primary-dark text-white dark:text-black flex items-center justify-center text-2xl font-bold mb-4">3</div>
-                                <h3 className="text-xl font-bold mb-2">Get Booked</h3>
-                                <p>Receive notifications and manage your appointments with ease.</p>
+                                <div className="w-16 h-16 rounded-full bg-white text-purple-500 flex items-center justify-center text-2xl font-bold mb-4">3</div>
+                                <h3 className="text-xl font-bold mb-2 text-white">Get Booked</h3>
+                                <p className="text-purple-100">Receive notifications and manage your appointments with ease.</p>
                             </motion.div>
                         </div>
                     </div>
                 </section>
+                {/* Rest of the sections remain unchanged */}
+                {/* ... */}
                 <section className="w-full py-12 md:py-24 lg:py-32 bg-neutral-100 dark:bg-neutral-800">
                     <div className="container px-4 md:px-6">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">What Our Users Say</h2>
@@ -320,7 +308,7 @@ function LandingPage() {
                     </div>
                 </section>
             </main>
-            <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-neutral-200 dark:border-neutral-800">
+            <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">
                 <p className="text-xs text-neutral-500 dark:text-neutral-400">© 2024 Slotly. All rights reserved.</p>
                 <nav className="sm:ml-auto flex gap-4 sm:gap-6">
                     <Link className="text-xs hover:underline underline-offset-4 text-neutral-500 dark:text-neutral-400" href="#">
